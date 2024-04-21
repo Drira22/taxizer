@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kafka Message Display</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <style>
+        #message-container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 50px;
+        }
+        .message {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kafka Message Display</h1>
+    <div id="message-container"></div>
+
+    <script>
+        const socket = io();
+
+        socket.on('connect', function() {
+            console.log('Connected to server');
+        });
+
+        socket.on('disconnect', function() {
+            console.log('Disconnected from server');
+        });
+
+        socket.on('kafka_message', function(message) {
+            console.log('Received Kafka message:', message);
+            displayMessage(message);
+        });
+
+        function displayMessage(message) {
+            // console.log('Displaying message:', message);
+            // alert(JSON.stringify(message)); 
+            const messageContainer = document.getElementById('message-container');
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.textContent = JSON.stringify(message);
+            messageContainer.appendChild(messageDiv);
+        }
+    </script>
+</body>
+</html>
