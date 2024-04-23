@@ -1,7 +1,3 @@
-# import pandas as pd
-# df = pd.read_csv('C:/P2M/Data/MTA-Bus-Time_.2014-08-01.txt', delimiter='\t')
-# df.to_csv('C:/P2M/Data/MTA-Bus-Time_.2014-08-01.csv', index=False)
-
 import subprocess
 import os
 from time import sleep
@@ -48,6 +44,15 @@ class KafkaManager:
         self.start_consumer()
         sleep(5)
         self.run_producer(file_path)
+
+
+
+
+# import pandas as pd
+# df = pd.read_csv('C:/P2M/Data/MTA-Bus-Time_.2014-08-01.txt', delimiter='\t')
+# df.to_csv('C:/P2M/Data/MTA-Bus-Time_.2014-08-01.csv', index=False)
+
+
 
 
 

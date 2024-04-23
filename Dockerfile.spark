@@ -1,0 +1,5 @@
+# Use an appropriate base image for Spark
+FROM apache/spark:3.2.0
+
+# Copy the Spark code into the container
+COPY spark_batcher.py /home/spark/app/spark_batcher.py
